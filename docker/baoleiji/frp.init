@@ -3,17 +3,17 @@ server_addr = frp.freefrp.net
 server_port = 7000
 token = freefrp.net
 
-[baoleiji_ecplugin_cn_http]
-type = http
-local_ip = 127.0.0.1
-local_port = 9001
-custom_domains = baoleiji.ecplugin.cn
-
 [baoleiji_ecplugin_cn_ssh]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22
 remote_port = 14222
+custom_domains = baoleiji2.ecplugin.cn
+
+[baoleiji_ecplugin_cn_http]
+type = http
+local_ip = 127.0.0.1
+local_port = 9001
 custom_domains = baoleiji2.ecplugin.cn
 
 [cloudbeaver_ecplugin_cn_http]
