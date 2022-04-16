@@ -50,6 +50,7 @@ services:
   frpc:
     image: snowdreamtech/frpc
     networks:
-      - host
+      - new
+    network_mode: host
     volumes:
       - /data/frpc.ini:/etc/frp/frpc.ini
