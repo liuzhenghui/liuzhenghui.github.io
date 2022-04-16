@@ -16,6 +16,7 @@ services:
       GUACDHOST: guacd
       REDISHOST: redis
       WEBTERMINALHOST: webterminal
+    restart: always
     volumes:
       - recording_data:/opt/webterminal/media/
     ports:
@@ -24,6 +25,7 @@ services:
     image: redis:6.0-alpine
     networks:
       - new
+    restart: always
     ports:
       - "6379:6379"
   webterminal:
@@ -33,6 +35,7 @@ services:
     environment:
       GUACDHOST: guacd
       REDISHOST: redis
+    restart: always
     volumes:
       - recording_data:/opt/webterminal/media/
       - db_data:/opt/webterminal/db/
@@ -43,6 +46,7 @@ services:
     image: dbeaver/cloudbeaver:latest
     networks:
       - new
+    restart: always
     volumes:
       - /var/cloudbeaver/workspace:/opt/cloudbeaver/workspace
     ports:
@@ -52,5 +56,6 @@ services:
     networks:
       - new
     network_mode: host
+    restart: always
     volumes:
       - /data/frpc.ini:/etc/frp/frpc.ini
