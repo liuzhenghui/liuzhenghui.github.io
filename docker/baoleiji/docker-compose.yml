@@ -7,8 +7,6 @@ volumes:
 networks:
   new:
     driver: bridge
-  frpc:
-    external: true
 services:
   guacd:
     image: guacamole/guacd:0.9.14
@@ -55,8 +53,6 @@ services:
       - "8080:8978"
   frpc:
     image: snowdreamtech/frpc
-    networks:
-      - frpc
     network_mode: host
     restart: always
     volumes:
