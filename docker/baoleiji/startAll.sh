@@ -34,6 +34,8 @@ echo "开始执行脚本..."
 # docker-compose
 nohup /usr/local/bin/docker-compose -f /data/docker-compose.yml up -d &
 
+# ioee 内网穿透
+nohup ./client_linux_amd64 -s lp.sh.ioee.vip -p 6993 -k b9acefc6da784b5d9b7372225c905613 -ssl true &
 
 
 
