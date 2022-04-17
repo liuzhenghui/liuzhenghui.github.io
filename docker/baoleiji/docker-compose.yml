@@ -61,3 +61,4 @@ services:
     restart: always
     volumes:
       - /data/frpc.ini:/etc/frp/frpc.ini
+
