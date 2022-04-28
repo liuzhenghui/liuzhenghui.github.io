@@ -1,0 +1,28 @@
+version: "3"
+
+networks:
+  net:
+    driver: bridge
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    networks:
+      - net
+    restart: always
+    volumes:
+      - /data/mysql-data/logs:/var/log/mysql
+      - /data/mysql-data/data:/var/lib/mysql
+      - /data/mysql-data/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+    ports:
+      - 3306:3306
+  frpc:
+    image: snowdreamtech/frpc
+    container_name: frpc
+    network_mode: host
+    restart: always
+    volumes:
+      - /data/frpc.ini:/etc/frp/frpc.ini
+

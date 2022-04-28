@@ -30,17 +30,12 @@ echo "开始执行脚本..."
 
 
 ########################## 以下可以增加一些启动服务的脚本(注意要用绝对路径) ###############################
-# 启动数据库
-service mysqld_weaver start
+
+# docker-compose
+nohup /usr/local/bin/docker-compose -f /data/docker-compose.yml up -d &
 sleep 30
 
 # 启动 ecology
 nohup /data/weaver/Resin4/bin/startresin.sh &
-
-# frpc 内网穿透
-nohup /data/frpc -c /data/frpc.ini &
-
-# ioee 内网穿透
-nohup /data/client_linux_amd64 -s lp.hk.ioee.vip -p 4993 -k f70a0bb72faa40b7bfb10b3030d8243b -ssl true &
 
 
